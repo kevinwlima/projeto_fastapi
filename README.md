@@ -1,6 +1,6 @@
 # Projeto FastAPI - Previsão de Evasão Escolar
 
-Este projeto tem como objetivo construir uma API em Python utilizando FastAPI para prever o risco de evasão escolar de alunos com base em dados educacionais. A aplicação integra um modelo de Machine Learning treinado com microdados do INEP e fornece previsões via endpoint `/predict`.
+Este projeto tem como objetivo construir uma API em Python utilizando FastAPI para prever o risco de evasão escolar de alunos com base em dados educacionais. A aplicação integra um modelo de Machine Learning treinado com microdados  e fornece previsões via endpoint `/predict`.
 
 ## 🎯 Objetivo
 
