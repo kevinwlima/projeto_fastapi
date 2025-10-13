@@ -1,65 +1,76 @@
-**🎨 API de Previsão de Risco de Evasão Escolar**
-Esta é a API de backend para o nosso projeto, construída para prever o risco de evasão escolar. Ela é a ponte entre o frontend e o modelo de Machine Learning.
+# Projeto FastAPI - Previsão de Evasão Escolar
 
-**⚙️ Tecnologias Utilizadas**
-FastAPI: O framework super-rápido para construir a API.
+Este projeto tem como objetivo construir uma API em Python utilizando FastAPI para prever o risco de evasão escolar de alunos com base em dados educacionais. A aplicação integra um modelo de Machine Learning treinado com microdados do INEP e fornece previsões via endpoint `/predict`.
 
-Pydantic: Para garantir que os dados de entrada sejam sempre perfeitos.
+## 🎯 Objetivo
 
-scikit-learn & pickle: Para carregar e usar o nosso modelo de IA.
+Ajudar gestores escolares a identificar alunos com maior risco de evasão, permitindo ações preventivas baseadas em dados.
 
-**🚀 Como Rodar a API Localmente**
-Para que tudo funcione, siga estes passos simples:
+## 🧠 Estrutura dos Squads
 
-**Pré-requisitos:** Tenha certeza de que o **Python** está instalado.
+### Squad 1: Dados & Inteligência Artificial
+- **Izabelle** – Líder de Dados / Engenheira de Dados Principal
+  - Lidera a coleta e processamento dos dados.
+  - Baixa microdados do INEP (Censo Escolar, SAEB).
+  - Cruza as bases via ID_ALUNO.
+  - Cria a variável-alvo EVADIU.
+  - Entrega dataset limpo e consistente.
 
-**Instalação:** Abra o terminal na pasta do projeto e instale as bibliotecas.
+- **Sutani** – Analista de Dados / Engenharia de Features
+  - Faz análise exploratória (EDA).
+  - Cria visualizações para entender padrões.
+  - Desenvolve features (ex.: Distorção Idade-Série, Mudança de Escola).
+  - Documenta o dicionário de dados.
 
-pip install fastapi uvicorn scikit-learn
-**Arquivo do Modelo:** A API depende de um arquivo crucial, o modelo.pkl.
+- **Isaque** – Cientista de Dados / Modelagem de Machine Learning
+  - Pesquisa e seleciona algoritmos (Logística, Random Forest, XGBoost).
+  - Treina, testa e otimiza modelos.
+  - Avalia métricas (AUC-ROC, Precisão, Recall, etc.).
+  - Salva modelo final em .pkl ou .joblib.
 
-⚠️  **ATENÇÃO: Este projeto só funcionará após a equipe de Ciência de Dados fornecer este arquivo.** Ele deve ser colocado na mesma pasta que o main.py.
+- **Anderson** – Validação & Qualidade de Dados
+  - Valida a qualidade dos dados processados.
+  - Testa a lógica da variável EVADIU.
+  - Analisa possíveis vieses (gênero, raça).
+  - Apoia a documentação técnica.
 
-**Executar:** Inicie o servidor Uvicorn com este comando.
+### Squad 2: Desenvolvimento Web & Visualização
+- **Gabriela** – Líder de Projeto & Desenvolvedora Backend
+  - Coordena geral e garante comunicação entre squads.
+  - Desenvolve o backend (API com Flask/FastAPI).
+  - Integra o modelo .pkl do Isaque.
+  - Entrega previsões de risco via API.
 
-uvicorn main:app --reload
-Sua API estará online e pronta para ser usada em http://127.0.0.1:8000.
+- **Kevin** – Desenvolvedor Frontend / Dashboard Principal
+  - Constrói a interface (Streamlit/Dash).
+  - Cria tabelas, filtros, gráficos.
+  - Faz chamadas para API e exibe previsões.
 
-🛣️**Endpoints da API**
-A documentação interativa completa (Swagger UI) está disponível em http://127.0.0.1:8000/docs para você testar e explorar!
+- **Caio** – UI/UX Designer & Frontend Auxiliar
+  - Desenha layout e experiência do usuário.
+  - Prototipa no Figma/Canva.
+  - Implementa design (CSS, visuais).
+  - Garante interface clara e intuitiva.
 
-**GET /
-Descrição:** Uma rota de boas-vindas para confirmar que a API está no ar.
+- **Vicente** – Infraestrutura (DevOps) & Documentação Técnica
+  - Pesquisa e implementa deploy (Streamlit Cloud, Heroku, etc.).
+  - Garante site online e funcional.
+  - Escreve documentação técnica (instalação, execução, API).
 
-**POST /predict
-Descrição:** Recebe os dados de um aluno e retorna a previsão de risco de evasão.
+## Tecnologias Utilizadas
 
-**Corpo da Requisição (JSON de Entrada):**
+### Linguagens e Frameworks
+- **Python**: Linguagem principal utilizada no projeto.
+- **FastAPI**: Framework para construção da API REST.
+- **Pandas**: Manipulação e análise de dados.
+- **Scikit-learn**: Treinamento e avaliação de modelos de Machine Learning.
+- **XGBoost**: Algoritmo de aprendizado de máquina utilizado na modelagem.
+- **Streamlit / Dash**: Frameworks para construção do dashboard interativo.
+- **HTML / CSS / JavaScript**: Tecnologias utilizadas no frontend.
 
-```json
-
-{
-  "idade": 15,
-  "serie": 9,
-  "mudou_escola": 1,
-  "distorcao_idade_serie": 1
-}
-```
-**Resposta (JSON de Saída):**
-
-```json
-
-
-{
-  "previsao": 1,
-  "probabilidade": [0.25, 0.75]
-}
-```
-previsao: 1 = alto risco de evasão; 0 = baixo risco.
-
-probabilidade: A chance de ser da classe 0 (baixo risco) e da classe 1 (alto risco), respectivamente.
-
-🤝 **Suporte e Contato**
-Qualquer dúvida sobre a API ou a integração, podem me procurar! Estou à disposição para ajudar a equipe de Frontend e DevOps a colocar o projeto em produção.
-
-
+### Ferramentas e Ambiente
+- **VS Code**: Ambiente de desenvolvimento.
+- **Jupyter Notebook**: Análise exploratória e desenvolvimento de modelos.
+- **Git & GitHub**: Controle de versão e hospedagem do código.
+- **Render / Railway / Heroku**: Alternativas para deploy da aplicação.
+- **Figma / Canva**: Prototipagem e design da interface.
