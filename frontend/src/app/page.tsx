@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import dynamic from 'next/dynamic'
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://127.0.0.1:8000'
 const ECharts = dynamic(() => import('echarts-for-react'), { ssr: false })
 
 export default function Page() {
